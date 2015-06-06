@@ -59,7 +59,7 @@ public class Bird : MonoBehaviour {
 	}
 
 	public void Move(Vector3 direction) {
-		float upangle = -(90f - (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg));
+		float upangle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
 		_lastRotation = _transform.rotation;
 		_targetRotation = Quaternion.AngleAxis(upangle, Vector3.forward);
