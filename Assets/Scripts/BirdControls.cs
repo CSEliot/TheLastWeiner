@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BirdControls : MonoBehaviour {
 
-	public bool keyboard = true;
+	public bool keyboard;
 
 	private const string HORIZONTAL_NAME = "BirdHorizontal";
 	private const string VERTICAL_NAME = "BirdVertical";
