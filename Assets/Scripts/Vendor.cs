@@ -11,11 +11,15 @@ public class Vendor : MonoBehaviour {
 	private string HORIZONTAL = "BirdHorizontalButton";
 	private int coins_collected = 0;
 
+	// Movement
 	private Vector2 direction;
 	private Rigidbody2D rb2d;
 
 	// Hotdog
 	public GameObject dogPrefab;
+
+	public float yRotDelta = 5;
+	public float yRot = 0;
 	
 	private float dogYVelMin;
 	private float dogYVelMax;
@@ -29,16 +33,18 @@ public class Vendor : MonoBehaviour {
 
 
 	void FixedUpdate(){
-		//Input.GetAxisRaw (HORIZONTAL)
-		rb2d.velocity = new Vector2 (Input.GetAxisRaw (HORIZONTAL) * speed, rb2d.velocity.y);
+		float direction = Input.GetAxisRaw (HORIZONTAL);
 
-		rb2d.transform.rotation = new Quaternion.Euler()
+		rb2d.velocity = new Vector2 (direction * speed, rb2d.velocity.y);
+
+		if(direction < 0) {
+			transform.rotation = Quaternion.Euler (0, yRot, 0);
+		} else if (direction > 0) {
+			transform.rotation = Quaternion.Euler (0, yRot, 0);
+		}
 	}
 
-
-
 	IEnumerator launchHotdogs(){
-
 		while (gameRunning) {
 			yield return new WaitForSeconds (dogInterval);
 			GameObject dog = Instantiate (dogPrefab, rb2d.position, rb2d.transform.rotation) as GameObject;
@@ -52,12 +58,12 @@ public class Vendor : MonoBehaviour {
 
 		if (other.gameObject.tag.Equals ("Coin")) {
 			coins_collected++;
-			other.gameObject.SetActive (false);
+			other.gameObject.GetComponent<Coin>().Reset();
 		}
 
 		// Collides with Enemy
 		else if( other.gameObject.tag.Equals("Enemy") ){
-			other.gameObject.SetActive(false);
+			Destroy(other.gameObject);
 		}
 	}
 }
