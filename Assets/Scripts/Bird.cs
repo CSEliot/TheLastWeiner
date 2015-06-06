@@ -7,7 +7,7 @@ public class Bird : MonoBehaviour {
 	public float rotateTime;
 	public Transform manager;
 
-	public enum ActionState
+	private enum ActionState
 	{
 		IDLE,
 		CARRYING,
@@ -18,14 +18,14 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	public ActionState _state;
+	private ActionState _state;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	public int _numDogs;
-	public int _numCoins;
+	private int _numDogs;
+	private int _numCoins;
 
 	private float _lastAction;
 
@@ -79,10 +79,9 @@ public class Bird : MonoBehaviour {
 				print("ACTION PERFORMED");
 				coin.gameObject.SetActive(true);				
 				coin.transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.z);
+				_numCoins--;
+				_lastAction = Time.time;
 			}
-
-			_numCoins--;
-			_lastAction = Time.time;
 		}
 	}
 

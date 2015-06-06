@@ -10,9 +10,12 @@ public class CoinManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		coinPrefab.GetComponent<Coin> ().manager = this.gameObject;
 		for (int i = 0; i < sizeOfPool; i++) {
-			GameObject coin = GameObject.Instantiate(coinPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-			coinPool.AddObject( coin.GetComponent<Coin>() );
+			GameObject coinObj = GameObject.Instantiate(coinPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			coinObj.name = "Coin " + i;
+			Coin coin = coinObj.GetComponent<Coin>();
+			coinPool.AddObject( coin );
 		}
 	}
 	
