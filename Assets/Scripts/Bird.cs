@@ -3,11 +3,12 @@ using System.Collections;
 
 public class Bird : MonoBehaviour {
 
-	public float actionDelay;
-	public float rotateTime;
+	public float actionDelay = 0.5f;
+	public float rotateTime = 0.2f;
+	public int maxDogs = 1;
 	public Transform manager;
 
-	private enum ActionState
+	public enum ActionState
 	{
 		IDLE,
 		CARRYING,
@@ -18,14 +19,14 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	private ActionState _state;
+	public ActionState _state = ActionState.IDLE;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	private int _numDogs;
-	private int _numCoins;
+	public int _numDogs;
+	public int _numCoins;
 
 	private float _lastAction;
 
@@ -34,8 +35,6 @@ public class Bird : MonoBehaviour {
 	void Start () {
 		_transform = transform;
 		_rigidbody = GetComponent<Rigidbody2D> ();
-
-		_state = ActionState.IDLE;
 
 		_lastRotation = _transform.rotation;
 		_targetRotation = _transform.rotation;
@@ -86,14 +85,19 @@ public class Bird : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.tag.Equals ("Hotdog")) {
+		if (collider.gameObject.tag.Equals ("Hotdog") && _numDogs < maxDogs) {
 			_state = ActionState.CARRYING;
 			_numDogs++;
 			collider.gameObject.SetActive (false);
 		} else if (collider.gameObject.tag.Equals ("Customer") && _numDogs > 0) {
 			_numDogs--;
 			_numCoins++;
-			// trigger the move of the customer
+			Customer cust = collider.gameObject.GetComponent<Customer>();
+			if (cust != null) {
+				cust.MoveRandom();
+			}
+		} else if (collider.gameObject.tag.Equals ("Enemy")) {
+			this.gameObject.SetActive(false);
 		}
 	}
 }
