@@ -3,23 +3,31 @@ using System.Collections;
 
 public class Bird : MonoBehaviour {
 
+	public float actionDelay;
 	public float rotateTime;
+	public Transform manager;
 
-	private enum ActionState
+	public enum ActionState
 	{
 		IDLE,
-		CARRYING_DOG,
-		CARRYING_COIN,
+		CARRYING,
 		PERFORMING
 	}
+	
+	private CoinManager _coinManager;
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	private ActionState _state;
+	public ActionState _state;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
+
+	public int _numDogs;
+	public int _numCoins;
+
+	private float _lastAction;
 
 
 	// Use this for initialization
@@ -31,12 +39,19 @@ public class Bird : MonoBehaviour {
 
 		_lastRotation = _transform.rotation;
 		_targetRotation = _transform.rotation;
+
+		_coinManager = manager.GetComponent<CoinManager> ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (_state == ActionState.PERFORMING) {
-			_state = ActionState.IDLE;
+			if (_numCoins == 0) {
+				_state = ActionState.IDLE;
+			} else {
+				if (Time.time - _lastAction > actionDelay) { 
+					_state = ActionState.CARRYING;
+				}
+			}
 		}
 
 		_rotateDx = Mathf.Min (_rotateDx + Time.deltaTime, rotateTime);
@@ -55,19 +70,31 @@ public class Bird : MonoBehaviour {
 	}
 	
 	public void PerformAction() {
-		if (_state == ActionState.CARRYING_COIN) {
+		if (_state == ActionState.CARRYING && _numCoins > 0) {
 			_state = ActionState.PERFORMING;
+
 			// grab the coin from the pool and send the coin downwards
-			//_coin.GetComponent<Rigidbody2D>().AddForce();
+			Coin coin = _coinManager.coinPool.RequestObject();
+			if (coin != null) {
+				print("ACTION PERFORMED");
+				coin.gameObject.SetActive(true);				
+				coin.transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.z);
+			}
+
+			_numCoins--;
+			_lastAction = Time.time;
 		}
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag.Equals ("Hotdog")) {
-			_state = ActionState.CARRYING_DOG;
+			_state = ActionState.CARRYING;
+			_numDogs++;
 			collider.gameObject.SetActive (false);
-		} else if (collider.gameObject.tag.Equals ("Customer") && _state == ActionState.CARRYING_DOG) {
-			_state = ActionState.CARRYING_COIN;
+		} else if (collider.gameObject.tag.Equals ("Customer") && _numDogs > 0) {
+			_numDogs--;
+			_numCoins++;
+			// trigger the move of the customer
 		}
 	}
 }

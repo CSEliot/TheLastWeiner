@@ -10,6 +10,7 @@ public class BirdControls : MonoBehaviour {
 	private const string HORIZONTAL_BUTTON_NAME = "BirdHorizontalButton";
 	private const string VERTICAL_BUTTON_NAME = "BirdVerticalButton";
 	private const string ACTION_NAME = "BirdAction";
+	private const string ACTION_BUTTON_NAME = "BirdActionButton";
 	
 	public float speed;
 
@@ -27,19 +28,23 @@ public class BirdControls : MonoBehaviour {
 		if (!keyboard) {
 			_direction.x = Input.GetAxis (HORIZONTAL_NAME);
 			_direction.y = Input.GetAxis (VERTICAL_NAME);
+
+			TryPerformAction(ACTION_NAME);
 		} else {
 			_direction.x = Input.GetAxisRaw (HORIZONTAL_BUTTON_NAME);
 			_direction.y = Input.GetAxisRaw (VERTICAL_BUTTON_NAME);	
+
+			TryPerformAction(ACTION_BUTTON_NAME);
 		}
 
 		_direction.z = 0.0f;
 		_direction.Normalize ();
 
-		print (_direction.ToString());
-
 		_bird.Move (_direction * speed * Time.deltaTime);
+	}
 
-		if (Input.GetAxis (ACTION_NAME) > 0) {
+	private void TryPerformAction( string action ) {
+		if (Input.GetAxisRaw (action) > 0) {
 			_bird.PerformAction();
 		}
 	}
