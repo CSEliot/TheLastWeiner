@@ -19,8 +19,12 @@ public class Coin : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag.Equals("Ground")) {
-			_coinManager.coinPool.ReturnObject(this);
-			this.gameObject.SetActive(false);
+			Reset ();
 		}
+	}
+
+	public void Reset() {
+		_coinManager.coinPool.ReturnObject (this);
+		this.gameObject.SetActive(false);
 	}
 }
