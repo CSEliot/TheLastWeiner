@@ -1,0 +1,528 @@
+fileFormatVersion: 2
+guid: 47c5a93d859435b48bbf156923c73603
+timeCreated: 1433605622
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: smallstuffSPRITESHEET_0
+    21300002: smallstuffSPRITESHEET_1
+    21300004: smallstuffSPRITESHEET_2
+    21300006: smallstuffSPRITESHEET_3
+    21300008: smallstuffSPRITESHEET_4
+    21300010: smallstuffSPRITESHEET_5
+    21300012: smallstuffSPRITESHEET_6
+    21300014: smallstuffSPRITESHEET_7
+    21300016: smallstuffSPRITESHEET_8
+    21300018: smallstuffSPRITESHEET_9
+    21300020: smallstuffSPRITESHEET_10
+    21300022: smallstuffSPRITESHEET_11
+    21300024: smallstuffSPRITESHEET_12
+    21300026: smallstuffSPRITESHEET_13
+    21300028: smallstuffSPRITESHEET_14
+    21300030: smallstuffSPRITESHEET_15
+    21300032: smallstuffSPRITESHEET_16
+    21300034: smallstuffSPRITESHEET_17
+    21300036: smallstuffSPRITESHEET_18
+    21300038: smallstuffSPRITESHEET_19
+    21300040: smallstuffSPRITESHEET_20
+    21300042: smallstuffSPRITESHEET_21
+    21300044: smallstuffSPRITESHEET_22
+    21300046: smallstuffSPRITESHEET_23
+    21300048: smallstuffSPRITESHEET_24
+    21300050: smallstuffSPRITESHEET_25
+    21300052: smallstuffSPRITESHEET_26
+    21300054: smallstuffSPRITESHEET_27
+    21300056: smallstuffSPRITESHEET_28
+    21300058: smallstuffSPRITESHEET_29
+    21300060: smallstuffSPRITESHEET_30
+    21300062: smallstuffSPRITESHEET_31
+    21300064: smallstuffSPRITESHEET_32
+    21300066: smallstuffSPRITESHEET_33
+    21300068: smallstuffSPRITESHEET_34
+    21300070: smallstuffSPRITESHEET_35
+    21300072: smallstuffSPRITESHEET_36
+    21300074: smallstuffSPRITESHEET_37
+    21300076: smallstuffSPRITESHEET_38
+    21300078: smallstuffSPRITESHEET_39
+    21300080: smallstuffSPRITESHEET_40
+    21300082: smallstuffSPRITESHEET_41
+    21300084: smallstuffSPRITESHEET_42
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: smallstuffSPRITESHEET_0
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 1895
+        width: 24
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 1896
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_2
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 1897
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_3
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 1894
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_4
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1895
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_5
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 1897
+        width: 25
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_6
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1890
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_7
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1885
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_8
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 1894
+        width: 27
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_9
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 1839
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_10
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 1837
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 1837
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_12
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1840
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_13
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1842
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_14
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_15
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_16
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_17
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_18
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1737
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_19
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1737
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_20
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_21
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_22
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1738
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_23
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1741
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_24
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 1741
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_25
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1741
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_26
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 1741
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_27
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 1737
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_28
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_29
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_30
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_31
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_32
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 1646
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_33
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 1646
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_34
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_35
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_36
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 1647
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_37
+      rect:
+        serializedVersion: 2
+        x: 830
+        y: 1650
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_38
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 1650
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_39
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1650
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_40
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 1650
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_41
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 1646
+        width: 61
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: smallstuffSPRITESHEET_42
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1556
+        width: 59
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
