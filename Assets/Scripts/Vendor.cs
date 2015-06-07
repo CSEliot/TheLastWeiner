@@ -4,27 +4,23 @@ using System.Collections;
 public class Vendor : MonoBehaviour {
 
 	public bool gameRunning = true;
-	public float speed = 10;
-	public float launchVel = 10;
-	public float dogInterval = 5;
 
 	private string HORIZONTAL = "VendorHorizontalButton";
 	private int coins_collected = 0;
 
 	// Movement
-	private Vector2 direction;
+	public float speed = 10;
 	private Rigidbody2D rb2d;
+	private Vector2 direction;
+
+	// Rotation
+	public float rot = 0;
 
 	// Hotdog
 	public GameObject dogPrefab;
+	public float launchVel = 10;
+	public float dogInterval = 5;
 
-	public float yRotDelta = 5;
-	public float yRot = 0;
-	
-	private float dogYVelMin;
-	private float dogYVelMax;
-	private float dogXVelMin;
-	private float dogXVelMax;
 
 	void Start(){
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -34,14 +30,16 @@ public class Vendor : MonoBehaviour {
 
 	void FixedUpdate(){
 		float direction = Input.GetAxisRaw (HORIZONTAL);
-
 		rb2d.velocity = new Vector2 (direction * speed, rb2d.velocity.y);
 
-		if(direction < 0) {
-			transform.rotation = Quaternion.Euler (0, yRot, 0);
-		} else if (direction > 0) {
-			transform.rotation = Quaternion.Euler (0, yRot, 0);
+		if (direction > 0) {
+			rot = 180;
+		} else if (direction < 0) {
+			rot = 0;
 		}
+
+		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler(0, rot, 0), .15f);
+
 	}
 
 	IEnumerator launchHotdogs(){
