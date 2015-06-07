@@ -19,14 +19,14 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	private ActionState _state = ActionState.IDLE;
+	public ActionState _state = ActionState.IDLE;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	private int _numDogs;
-	private int _numCoins;
+	public int _numDogs;
+	public int _numCoins;
 
 	private float _lastAction;
 
@@ -85,7 +85,6 @@ public class Bird : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag.Equals ("Hot Dog") ) {
-			print("ACTION PERFORMED");
 			if (_numDogs < maxDogs) {
 				_state = ActionState.CARRYING;
 				_numDogs++;
@@ -94,6 +93,7 @@ public class Bird : MonoBehaviour {
 		} else if (collider.gameObject.tag.Equals ("Customer") && _numDogs > 0) {
 			_numDogs--;
 			_numCoins++;
+			_state = ActionState.CARRYING;
 			Customer cust = collider.gameObject.GetComponent<Customer>();
 			if (cust != null) {
 				cust.MoveRandom();
