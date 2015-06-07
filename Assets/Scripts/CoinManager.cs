@@ -22,7 +22,7 @@ public class CoinManager : MonoBehaviour {
 		foolImage = fool.GetComponent<Image>();
 		coinPrefab.GetComponent<Coin> ().manager = this.gameObject;
 		for (int i = 0; i < sizeOfPool; i++) {
-			GameObject coinObj = GameObject.Instantiate(coinPrefab, Vector3.zero, Quaternion.identity) as GameObject;
+			GameObject coinObj = GameObject.Instantiate(coinPrefab, Vector3.zero, Quaternion.AngleAxis(90, Vector3.left)) as GameObject;
 			coinObj.name = "Coin " + i;
 			Coin coin = coinObj.GetComponent<Coin>();
 			coinPool.AddObject( coin );
