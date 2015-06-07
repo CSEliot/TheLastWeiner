@@ -7,12 +7,11 @@ public class Tumble : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_rigidbody = GetComponent<Rigidbody2D>();
-		_rigidbody.angularVelocity = Random.Range (100f, 500f);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Rotate (Vector3.left, Time.deltaTime * 180, Space.Self);
 	}
 }

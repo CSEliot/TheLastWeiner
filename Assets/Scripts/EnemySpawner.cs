@@ -49,8 +49,8 @@ public class EnemySpawner : MonoBehaviour {
 			// Spawn ship the other 10% of the time
 			else {
 				Debug.Log("Spawning Ship");
-				Vector3 spawnPosition = new Vector3 (25.0f, Random.Range (-4.5f, 7.5f), -3.83f);
-				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), livingTime);
+				Vector3 spawnPosition = new Vector3 (16.0f, Random.Range (-4.5f, 7.5f), -3.83f);
+				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), livingTime*2);
 			}
 
 			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f)*3f);
