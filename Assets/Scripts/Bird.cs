@@ -19,14 +19,14 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	public ActionState _state = ActionState.IDLE;
+	private ActionState _state = ActionState.IDLE;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	public int _numDogs;
-	public int _numCoins;
+	private int _numDogs;
+	private int _numCoins;
 
 	private float _lastAction;
 
@@ -75,7 +75,6 @@ public class Bird : MonoBehaviour {
 			// grab the coin from the pool and send the coin downwards
 			Coin coin = _coinManager.coinPool.RequestObject();
 			if (coin != null) {
-				print("ACTION PERFORMED");
 				coin.gameObject.SetActive(true);				
 				coin.transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.z);
 				_numCoins--;
@@ -85,10 +84,13 @@ public class Bird : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.tag.Equals ("Hotdog") && _numDogs < maxDogs) {
-			_state = ActionState.CARRYING;
-			_numDogs++;
-			collider.gameObject.SetActive (false);
+		if (collider.gameObject.tag.Equals ("Hot Dog") ) {
+			print("ACTION PERFORMED");
+			if (_numDogs < maxDogs) {
+				_state = ActionState.CARRYING;
+				_numDogs++;
+				collider.gameObject.SetActive (false);
+			}
 		} else if (collider.gameObject.tag.Equals ("Customer") && _numDogs > 0) {
 			_numDogs--;
 			_numCoins++;
