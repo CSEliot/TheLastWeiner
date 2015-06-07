@@ -5,6 +5,7 @@ public class Bird : MonoBehaviour {
 
 	public float actionDelay = 0.5f;
 	public float rotateTime = 0.2f;
+	public float scaleTime = 0.2f;
 	public int maxDogs = 1;
 	public Transform manager;
 
@@ -19,14 +20,19 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	private ActionState _state = ActionState.IDLE;
+	public ActionState _state = ActionState.IDLE;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	private int _numDogs;
-	private int _numCoins;
+	private Vector3 _scaleVector;
+	private float _lastScale;
+	private float _targetScale;
+	private float _scaleDx;
+	
+	public int _numDogs;
+	public int _numCoins;
 
 	private float _lastAction;
 
@@ -38,6 +44,10 @@ public class Bird : MonoBehaviour {
 
 		_lastRotation = _transform.rotation;
 		_targetRotation = _transform.rotation;
+
+		_lastScale = _transform.localScale.x;
+		_targetScale = _transform.localScale.x;
+		_scaleVector = new Vector3 ();
 
 		_coinManager = manager.GetComponent<CoinManager> ();
 	}
@@ -54,16 +64,32 @@ public class Bird : MonoBehaviour {
 		}
 
 		_rotateDx = Mathf.Min (_rotateDx + Time.deltaTime, rotateTime);
-
 		_transform.rotation = Quaternion.Lerp (_lastRotation, _targetRotation, _rotateDx / rotateTime);
+
+		_scaleDx = Mathf.Min (_scaleDx + Time.deltaTime, scaleTime);
+		_scaleVector.x = Mathf.Lerp(_lastScale, _targetScale, _scaleDx / scaleTime);
+		_scaleVector.y = _transform.localScale.y;
+		_scaleVector.z = _transform.localScale.z;
+		_transform.localScale = _scaleVector;
 	}
 
 	public void Move(Vector3 direction) {
-		float upangle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+		float upangle = Mathf.Atan2(direction.y, 0) * Mathf.Rad2Deg;
 
 		_lastRotation = _transform.rotation;
-		_targetRotation = Quaternion.AngleAxis(upangle, Vector3.forward);
+		_lastScale = _transform.localScale.x;
+
+		if (direction.x < 0) {
+			_targetScale = -1;
+			_targetRotation = Quaternion.AngleAxis(-upangle, Vector3.forward);
+		}
+		else if (direction.x >= 0) {
+			_targetScale = 1;
+			_targetRotation = Quaternion.AngleAxis(upangle, Vector3.forward);
+		}
+
 		_rotateDx = 0;
+		_scaleDx = 0;
 
 		_rigidbody.velocity = direction;
 	}
@@ -85,7 +111,6 @@ public class Bird : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D collider) {
 		if (collider.gameObject.tag.Equals ("Hot Dog") ) {
-			print("ACTION PERFORMED");
 			if (_numDogs < maxDogs) {
 				_state = ActionState.CARRYING;
 				_numDogs++;
@@ -94,6 +119,7 @@ public class Bird : MonoBehaviour {
 		} else if (collider.gameObject.tag.Equals ("Customer") && _numDogs > 0) {
 			_numDogs--;
 			_numCoins++;
+			_state = ActionState.CARRYING;
 			Customer cust = collider.gameObject.GetComponent<Customer>();
 			if (cust != null) {
 				cust.MoveRandom();
