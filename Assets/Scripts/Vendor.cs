@@ -54,7 +54,7 @@ public class Vendor : MonoBehaviour {
 	// Collides with other Collider2D
 	void OnTriggerEnter2D(Collider2D other) {
 
-		Debug.Log("OH I VENDOR COLLIDED WITH: " + collider.name);
+		Debug.Log("OH I VENDOR COLLIDED WITH: " + other.name);
 
 		if (other.gameObject.tag.Equals ("Coin")) {
 			coins_collected++;
@@ -65,7 +65,7 @@ public class Vendor : MonoBehaviour {
 		else if( other.gameObject.tag.Equals("Enemy") ){
 		     	Debug.Log("POOPERE");
 			Destroy(other.gameObject);
-			Destroy(this);
+			Destroy(this.gameObject);
 		}
 	}
 }
