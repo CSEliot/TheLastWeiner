@@ -9,6 +9,7 @@ public class Coin : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		manager = GameObject.Find("GameManager");
 		_coinManager = manager.GetComponent<CoinManager> ();
 	}
 	

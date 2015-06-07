@@ -122,7 +122,8 @@ public class Bird : MonoBehaviour {
 			_state = ActionState.CARRYING;
 			Customer cust = collider.gameObject.GetComponent<Customer>();
 			if (cust != null) {
-				cust.MoveRandom();
+				bool CalledFromStart = false;
+				cust.MoveRandom(CalledFromStart);
 			}
 		} else if (collider.gameObject.tag.Equals ("Enemy")) {
 			this.gameObject.SetActive(false);

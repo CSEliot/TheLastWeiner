@@ -47,11 +47,12 @@ public class EnemySpawner : MonoBehaviour {
 			}
 			// Spawn ship the other 10% of the time
 			else {
-				Vector3 spawnPosition = new Vector3 (25.0f, Random.Range (-1.5f, 7.5f), -3.83f);
-				Instantiate (ship, spawnPosition, Quaternion.identity);
+				Debug.Log("Spawning Ship");
+				Vector3 spawnPosition = new Vector3 (25.0f, Random.Range (-4.5f, 7.5f), -3.83f);
+				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), 10);
 			}
 
-			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f));
+			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f)*3f);
 		}
 	}
 }

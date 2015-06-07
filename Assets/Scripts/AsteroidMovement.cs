@@ -10,7 +10,7 @@ public class AsteroidMovement : MonoBehaviour {
 	void Start ()
 	{
 		_rigidbody = GetComponent<Rigidbody2D>();
-		_rigidbody.angularVelocity = Random.Range ((float)100, (float)500);
+		_rigidbody.angularVelocity = Random.Range (100f, 500f);
 	}
 
 	void Update ()

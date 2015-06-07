@@ -11,25 +11,37 @@ public class Vendor : MonoBehaviour {
 	// Movement
 	public float speed = 10;
 	private Rigidbody2D rb2d;
-	private Vector2 direction;
+	private float direction;
+	private bool JUMP;
 
 	// Rotation
 	public float rot = 0;
 
+	public float JumpHeight;
 	// Hotdog
 	public GameObject dogPrefab;
 	public float launchVel = 10;
 	public float dogInterval = 5;
 
+	public CoinManager TheCoinManager;
+
 
 	void Start(){
 		rb2d = GetComponent<Rigidbody2D> ();
 		StartCoroutine (launchHotdogs ());
+		JUMP = false;
+
 	}
 
+	void Update(){
+		if(Input.GetKeyDown("space") && transform.position.y < -4.5f){
+			JUMP = true;
+		}
+		direction = Input.GetAxisRaw (HORIZONTAL);
+	}
 
 	void FixedUpdate(){
-		float direction = Input.GetAxisRaw (HORIZONTAL);
+
 		rb2d.velocity = new Vector2 (direction * speed, rb2d.velocity.y);
 
 		if (direction > 0) {
@@ -40,6 +52,11 @@ public class Vendor : MonoBehaviour {
 
 		transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler(0, rot, 0), .15f);
 
+		if(JUMP){
+			Debug.Log("Attempting to Jump");
+			JUMP = false;
+			rb2d.velocity += new Vector2(0f, JumpHeight);		
+		}
 	}
 
 	IEnumerator launchHotdogs(){
@@ -59,6 +76,7 @@ public class Vendor : MonoBehaviour {
 		if (other.gameObject.tag.Equals ("Coin")) {
 			coins_collected++;
 			other.gameObject.GetComponent<Coin>().Reset();
+			TheCoinManager.AddNewCoin();
 		}
 
 		// Collides with Enemy

@@ -19,11 +19,4 @@ public class ShipMovement : MonoBehaviour {
 		_rigidbody.MovePosition(new Vector2(_rigidbody.position.x - velocity * Time.deltaTime, _rigidbody.position.y));
 	}
 
-	void OnTriggerEnter2D(Collider2D collider)
-	{
-		if (collider.gameObject.tag.Equals("Boundary"))
-		{
-			Destroy(gameObject);
-		}
-	}
 }
