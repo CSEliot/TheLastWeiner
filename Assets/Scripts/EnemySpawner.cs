@@ -8,6 +8,7 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject asteroid3;
 	public GameObject ship;
 	private Vector3 SpawnPosition;
+	public int livingTime;
 
 	// Use this for initialization
 	void Start ()
@@ -34,22 +35,22 @@ public class EnemySpawner : MonoBehaviour {
 				SpawnPosition.Set(Random.Range (-10.0f, 15.0f), 10.5f, -3.83f);
 				if (random < 3)
 				{
-					Destroy(Instantiate (asteroid1, SpawnPosition, Quaternion.identity), 10);
+					Destroy(Instantiate (asteroid1, SpawnPosition, Quaternion.identity), livingTime);
 				}
 				else if (random < 6)
 				{
-					Destroy(Instantiate (asteroid2, SpawnPosition, Quaternion.identity), 10);
+					Destroy(Instantiate (asteroid2, SpawnPosition, Quaternion.identity), livingTime);
 				}
 				else
 				{
-					Destroy(Instantiate (asteroid3, SpawnPosition, Quaternion.identity), 10);
+					Destroy(Instantiate (asteroid3, SpawnPosition, Quaternion.identity), livingTime);
 				}
 			}
 			// Spawn ship the other 10% of the time
 			else {
 				Debug.Log("Spawning Ship");
 				Vector3 spawnPosition = new Vector3 (25.0f, Random.Range (-4.5f, 7.5f), -3.83f);
-				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), 10);
+				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), livingTime);
 			}
 
 			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f)*3f);

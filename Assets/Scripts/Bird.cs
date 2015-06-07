@@ -80,11 +80,11 @@ public class Bird : MonoBehaviour {
 		_lastScale = _transform.localScale.x;
 
 		if (direction.x < 0) {
-			_targetScale = -1;
+			_targetScale = -2.3f;
 			_targetRotation = Quaternion.AngleAxis(-upangle, Vector3.forward);
 		}
 		else if (direction.x >= 0) {
-			_targetScale = 1;
+			_targetScale = 2.3f;
 			_targetRotation = Quaternion.AngleAxis(upangle, Vector3.forward);
 		}
 
