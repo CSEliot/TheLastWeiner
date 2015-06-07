@@ -7,11 +7,13 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject asteroid2;
 	public GameObject asteroid3;
 	public GameObject ship;
+	private Vector3 SpawnPosition;
 
 	// Use this for initialization
 	void Start ()
 	{
 		StartCoroutine (spawnEnemy());
+		SpawnPosition = new Vector3 (0,0,0);
 	}
 
 	// Update is called once per frame
@@ -29,23 +31,23 @@ public class EnemySpawner : MonoBehaviour {
 
 			// Spawn asteroids 90% of the time
 			if (random < 9) {
-				Vector3 spawnPosition = new Vector3 (Random.Range ((float)-10.0, (float)15.0), (float)10.5, (float)0.0);
+				SpawnPosition.Set(Random.Range (-10.0f, 15.0f), 10.5f, -3.83f);
 				if (random < 3)
 				{
-					Instantiate (asteroid1, spawnPosition, Quaternion.identity);
+					Destroy(Instantiate (asteroid1, SpawnPosition, Quaternion.identity), 3);
 				}
 				else if (random < 6)
 				{
-					Instantiate (asteroid2, spawnPosition, Quaternion.identity);
+					Destroy(Instantiate (asteroid2, SpawnPosition, Quaternion.identity), 3);
 				}
 				else
 				{
-					Instantiate (asteroid3, spawnPosition, Quaternion.identity);
+					Destroy(Instantiate (asteroid3, SpawnPosition, Quaternion.identity), 3);
 				}
 			}
 			// Spawn ship the other 10% of the time
 			else {
-				Vector3 spawnPosition = new Vector3 ((float)25.0, Random.Range ((float)-1.5, (float)7.5), (float)0.0);
+				Vector3 spawnPosition = new Vector3 (25.0f, Random.Range (-1.5f, 7.5f), 0.0f);
 				Instantiate (ship, spawnPosition, Quaternion.identity);
 			}
 

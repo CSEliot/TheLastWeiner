@@ -54,6 +54,8 @@ public class Vendor : MonoBehaviour {
 	// Collides with other Collider2D
 	void OnTriggerEnter2D(Collider2D other) {
 
+		Debug.Log("OH I VENDOR COLLIDED WITH: " + collider.name);
+
 		if (other.gameObject.tag.Equals ("Coin")) {
 			coins_collected++;
 			other.gameObject.GetComponent<Coin>().Reset();
