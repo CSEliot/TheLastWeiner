@@ -47,7 +47,7 @@ public class Vendor : MonoBehaviour {
 	IEnumerator launchHotdogs(){
 		while (gameRunning) {
 			yield return new WaitForSeconds (dogInterval);
-			GameObject dog = Instantiate (dogPrefab, rb2d.position, rb2d.transform.rotation) as GameObject;
+			GameObject dog = Instantiate (dogPrefab, new Vector3(rb2d.position.x, rb2d.position.y, -3.83f), rb2d.transform.rotation) as GameObject;
 			// Set the dogs initial Velocity
 			dog.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0f, launchVel);
 		}
