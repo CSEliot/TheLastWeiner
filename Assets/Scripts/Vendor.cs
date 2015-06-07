@@ -25,6 +25,7 @@ public class Vendor : MonoBehaviour {
 
 	public CoinManager TheCoinManager;
 
+	public AudioSource HotDogThrow;
 
 	void Start(){
 		rb2d = GetComponent<Rigidbody2D> ();
@@ -65,6 +66,7 @@ public class Vendor : MonoBehaviour {
 			GameObject dog = Instantiate (dogPrefab, new Vector3(rb2d.position.x, rb2d.position.y, -3.83f), rb2d.transform.rotation) as GameObject;
 			// Set the dogs initial Velocity
 			dog.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0f, launchVel);
+			HotDogThrow.Play();
 		}
 	}
 
@@ -74,6 +76,7 @@ public class Vendor : MonoBehaviour {
 		Debug.Log("OH I VENDOR COLLIDED WITH: " + other.name);
 
 		if (other.gameObject.tag.Equals ("Coin")) {
+			other.GetComponent<AudioSource>().Play();
 			coins_collected++;
 			other.gameObject.GetComponent<Coin>().Reset();
 			TheCoinManager.AddNewCoin();
@@ -81,8 +84,7 @@ public class Vendor : MonoBehaviour {
 
 		// Collides with Enemy
 		else if( other.gameObject.tag.Equals("Enemy") ){
-		     	Debug.Log("POOPERE");
-			Destroy(other.gameObject);
+		    Destroy(other.gameObject);
 			Destroy(this.gameObject);
 		}
 	}

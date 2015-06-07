@@ -126,7 +126,8 @@ public class Bird : MonoBehaviour {
 				cust.MoveRandom(CalledFromStart);
 			}
 		} else if (collider.gameObject.tag.Equals ("Enemy")) {
-			this.gameObject.SetActive(false);
+			GetComponent<AudioSource>().Play();
+			Destroy(this.gameObject, 1);
 		}
 	}
 }

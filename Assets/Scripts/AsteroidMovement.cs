@@ -22,6 +22,7 @@ public class AsteroidMovement : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		Debug.Log("OH I ASTEROID COLLIDED WITH: " + collider.name);
+		GetComponent<AudioSource>().Play();
 		if (collider.gameObject.tag.Equals("Ground"))
 		{
 			Destroy(gameObject);
