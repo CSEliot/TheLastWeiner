@@ -61,7 +61,9 @@ public class Vendor : MonoBehaviour {
 
 		// Collides with Enemy
 		else if( other.gameObject.tag.Equals("Enemy") ){
+		     	Debug.Log("POOPERE");
 			Destroy(other.gameObject);
+			Destroy(this);
 		}
 	}
 }
