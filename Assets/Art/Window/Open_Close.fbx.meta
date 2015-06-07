@@ -45,7 +45,7 @@ ModelImporter:
       name: Open
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 119
+      lastFrame: 93
       wrapMode: 1
       orientationOffsetY: 0
       level: 0
@@ -116,14 +116,14 @@ ModelImporter:
     - serializedVersion: 16
       name: Stay Open
       takeName: Take 001
-      firstFrame: 241
-      lastFrame: 360
+      firstFrame: 342
+      lastFrame: 400
       wrapMode: 1
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -152,14 +152,14 @@ ModelImporter:
     - serializedVersion: 16
       name: Stay Closed
       takeName: Take 001
-      firstFrame: 480
+      firstFrame: 521
       lastFrame: 600
       wrapMode: 1
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

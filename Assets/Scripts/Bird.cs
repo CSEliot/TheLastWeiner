@@ -19,14 +19,14 @@ public class Bird : MonoBehaviour {
 
 	private Transform _transform;
 	private Rigidbody2D _rigidbody;
-	private ActionState _state = ActionState.IDLE;
+	public ActionState _state = ActionState.IDLE;
 
 	private Quaternion _lastRotation;
 	private Quaternion _targetRotation;
 	private float _rotateDx;
 
-	private int _numDogs;
-	private int _numCoins;
+	public int _numDogs;
+	public int _numCoins;
 
 	private float _lastAction;
 

@@ -8,7 +8,7 @@ public class Vendor : MonoBehaviour {
 	public float launchVel = 10;
 	public float dogInterval = 5;
 
-	private string HORIZONTAL = "BirdHorizontalButton";
+	private string HORIZONTAL = "VendorHorizontalButton";
 	private int coins_collected = 0;
 
 	// Movement
