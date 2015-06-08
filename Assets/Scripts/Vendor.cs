@@ -80,6 +80,9 @@ public class Vendor : MonoBehaviour {
 			coins_collected++;
 			other.gameObject.GetComponent<Coin>().Reset();
 			TheCoinManager.AddNewCoin();
+
+			//increase difficulty on ships, asteroids, and spawning rate
+			GameObject.Find("Spawners").GetComponent<EnemySpawner>().IncreaseDifficulty();
 		}
 
 		// Collides with Enemy

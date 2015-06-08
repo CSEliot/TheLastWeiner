@@ -16,9 +16,12 @@ public class CoinManager : MonoBehaviour {
 
 	private int totalCoins = 0;
 
+
+	private bool _isWin;
 	private Image foolImage;
 	// Use this for initialization
 	void Awake () {
+		_isWin = false;
 		foolImage = fool.GetComponent<Image>();
 		coinPrefab.GetComponent<Coin> ().manager = this.gameObject;
 		for (int i = 0; i < sizeOfPool; i++) {
@@ -31,8 +34,9 @@ public class CoinManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(totalCoins >= 10){
+		if(totalCoins >= 10 && _isWin == false){
 			eliotlol.SetActive(true);
+			_isWin = true;
 			GameObject.Find("Spawners").SetActive(false);
 		}
 	}

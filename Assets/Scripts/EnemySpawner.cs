@@ -10,9 +10,12 @@ public class EnemySpawner : MonoBehaviour {
 	private Vector3 SpawnPosition;
 	public int livingTime;
 
+	private float Difficulty;
+
 	// Use this for initialization
 	void Start ()
 	{
+		Difficulty = 3f;
 		SpawnPosition = new Vector3 (0,0,0);
 		StartCoroutine (spawnEnemy());
 	}
@@ -53,7 +56,11 @@ public class EnemySpawner : MonoBehaviour {
 				Destroy(Instantiate (ship, spawnPosition, Quaternion.identity), livingTime*2);
 			}
 
-			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f)*3f);
+			yield return new WaitForSeconds(Random.Range(0.3f, 0.6f)*Difficulty);
 		}
+	}
+
+	public void IncreaseDifficulty(){
+		Difficulty -= 0.1f;
 	}
 }
